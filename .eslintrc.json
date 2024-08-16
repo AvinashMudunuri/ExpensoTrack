@@ -1,3 +1,23 @@
 {
-  "extends": "react-app"
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["react", "jsx-a11y", "import", "prettier"],
+  "rules": {
+    "arrow-body-style": ["error", "as-needed"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  }
 }

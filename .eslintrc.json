@@ -3,6 +3,7 @@
   "plugins": ["react", "jsx-a11y", "import", "prettier"],
   "rules": {
     "arrow-body-style": ["error", "as-needed"],
+    "react/require-default-props": [0],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/function-component-definition": [
       2,
@@ -13,6 +14,10 @@
       {
         "devDependencies": true
       }
+    ],
+    "import/prefer-default-export": [
+        "warn",
+        { "target": "any" }
     ]
   },
   "env": {

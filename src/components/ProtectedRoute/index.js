@@ -12,7 +12,7 @@ const ProtectedRoute = ({ isAuthenticated, children }) => {
 
 ProtectedRoute.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  children: PropTypes.node
-}
+  children: PropTypes.node,
+};
 
 export default ProtectedRoute;

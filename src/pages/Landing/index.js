@@ -11,6 +11,7 @@ import {
 import { styled } from '@mui/material/styles';
 import FeatureCard from '../../components/FeatureCard';
 import { generateRandomString } from '../../utils';
+import AuthForm from '../../components/AuthForm';
 
 const RootContainer = styled(Box)(() => ({
   backgroundColor: 'primary.main',
@@ -101,6 +102,9 @@ const LandingPage = () => {
               </Grid>
             ))}
           </Grid>
+        </Box>
+        <Box sx={{ padding: '20px 0' }}>
+          <AuthForm />
         </Box>
       </Container>
     </RootContainer>

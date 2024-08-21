@@ -16,7 +16,9 @@ import {
   Settings,
   Logout,
 } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import { generateRandomString } from '../../utils';
+import { useFetchData } from '../../hooks/useFetchData';
 
 const Sidebar = () => {
   const menuItems = [
@@ -41,6 +43,22 @@ const Sidebar = () => {
       icon: <Settings />,
     },
   ];
+  const navigate = useNavigate();
+
+  const { mutate } = useFetchData({
+    method: 'POST',
+    endpoint: '/users/auth/logout',
+  });
+
+  const handleLogout = () => {
+    mutate(null, {
+      onSuccess: (response) => {
+        console.log(response);
+        localStorage.removeItem('token');
+        navigate('/');
+      },
+    });
+  };
   return (
     <Drawer
       variant="permanent"
@@ -77,8 +95,10 @@ const Sidebar = () => {
       </List>
       <Box sx={{ flexGrow: 1, backgroundColor: 'primary.main' }} />
       <Box sx={{ padding: '16px', backgroundColor: 'primary.main' }}>
-        <ListItemButton>
-          <ListItemIcon sx={{ color: 'white' }}><Logout /></ListItemIcon>
+        <ListItemButton onClick={handleLogout}>
+          <ListItemIcon sx={{ color: 'white' }}>
+            <Logout />
+          </ListItemIcon>
           <ListItemText primary="Logout" sx={{ color: 'white' }} />
         </ListItemButton>
       </Box>

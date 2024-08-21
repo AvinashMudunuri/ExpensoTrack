@@ -15,10 +15,7 @@
         "devDependencies": true
       }
     ],
-    "import/prefer-default-export": [
-        "warn",
-        { "target": "any" }
-    ]
+    "import/prefer-default-export": ["warn", { "target": "any" }]
   },
   "env": {
     "browser": true,
